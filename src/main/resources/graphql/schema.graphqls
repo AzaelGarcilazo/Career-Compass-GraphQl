@@ -1,0 +1,51 @@
+schema {
+    query: Query
+}
+
+type Query {
+    getPersonalityTest: TestResponse!
+    getVocationalInterestsTest: TestResponse!
+    getCognitiveSkillsTest: TestResponse!
+
+    getEvaluationDetail(evaluationId: Int!): EvaluationDetailResponse!
+}
+
+type TestResponse {
+    id: Int!
+    name: String!
+    description: String!
+    testType: String!
+    questionsToShow: Int!
+    questions: [QuestionResponse!]!
+}
+
+type QuestionResponse {
+    id: Int!
+    questionText: String!
+    orderNumber: Int!
+    options: [AnswerOptionResponse!]!
+}
+
+type AnswerOptionResponse {
+    id: Int!
+    optionText: String!
+}
+
+type EvaluationDetailResponse {
+    evaluationId: Int!
+    testName: String!
+    testType: String!
+    completionDate: String!
+    totalScore: String!
+    answers: [UserAnswerDetail!]!
+    analysisResult: String!
+}
+
+type UserAnswerDetail {
+    questionId: Int!
+    questionText: String!
+    selectedOptionId: Int!
+    selectedOptionText: String!
+    category: String!
+    weightValue: Int!
+}
