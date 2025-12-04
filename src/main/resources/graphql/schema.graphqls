@@ -6,8 +6,6 @@ type Query {
     getPersonalityTest: TestResponse!
     getVocationalInterestsTest: TestResponse!
     getCognitiveSkillsTest: TestResponse!
-
-    getEvaluationDetail(evaluationId: Int!): EvaluationDetailResponse!
 }
 
 type TestResponse {
@@ -29,23 +27,4 @@ type QuestionResponse {
 type AnswerOptionResponse {
     id: Int!
     optionText: String!
-}
-
-type EvaluationDetailResponse {
-    evaluationId: Int!
-    testName: String!
-    testType: String!
-    completionDate: String!
-    totalScore: String!
-    answers: [UserAnswerDetail!]!
-    analysisResult: String!
-}
-
-type UserAnswerDetail {
-    questionId: Int!
-    questionText: String!
-    selectedOptionId: Int!
-    selectedOptionText: String!
-    category: String!
-    weightValue: Int!
 }

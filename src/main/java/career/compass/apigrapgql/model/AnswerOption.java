@@ -31,8 +31,5 @@ public class AnswerOption {
 
     @Column(name = "category", length = 100)
     private String category;
-
-    @OneToMany(mappedBy = "option", cascade = CascadeType.ALL)
-    private List<UserAnswer> userAnswers;
 }
 
